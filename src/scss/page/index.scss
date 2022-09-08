@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@import "../foundation/**/*";
+
+
+.hello{
+    @include is-pc{
+        height:100px;
+    }
+}
