@@ -13,6 +13,7 @@ This is a personal project for creating a task runner for converting SCSS to CSS
 | rebuild  | deletes existing **public** folder and creates newer one  |
 | watch | watches every file save on **src** folder then modify it |
 | clean  | Removes files and folders |
+| sync | same with **watch** command but with browser (live server) updates new files on refresh  |
 
 
 ### :computer: Usage
@@ -21,7 +22,12 @@ If you want to make an static html you can remove the folders [controller, model
 
 ##### Code Block
     npm install
+
+    for ejs
     gulp build && gulp watch
+
+    for static html
+    gulp build && gulp sync
 
 ### :heavy_heart_exclamation: Acknoledgements and References
 
