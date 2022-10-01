@@ -5,5 +5,8 @@
 .hello{
     @include is-pc{
         height:100px;
+        width: 100px;
     }
+    display:flex;
+    @include flex-xy(center, center)
 }

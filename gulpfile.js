@@ -17,6 +17,9 @@ const size = require('gulp-size')
 const sourceMaps = require('gulp-sourcemaps')
 const sortMediaQueries = require('postcss-sort-media-queries')
 
+// Browser Sync
+const browserSync = require('browser-sync').create()
+
 //clean
 const clean = require('gulp-clean')
 
@@ -83,7 +86,23 @@ const watchFiles = () =>{
     watch('./src/images/**', compileImage)
 }
 
+const sync = () => {
+    browserSync.init({
+        server:{
+            baseDir:'./'
+        }
+    })
+
+    watch('./src/scss/**/*.scss', compileSass)
+    watch('./src/js/**/*.js', compileJs)
+    watch('./src/images/**', compileImage)
+    watch('./*.html').on('change', browserSync.reload)
+}
+
+
 exports.clean = cleanFile
 exports.build = series(compileSass, compileJs, compileImage)
 exports.rebuild = series(cleanFile, series(compileSass, compileJs, compileImage))
 exports.watch = watchFiles
+
+exports.sync = sync
