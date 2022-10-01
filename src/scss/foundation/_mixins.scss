@@ -35,10 +35,10 @@
 //
 // ---------------------------------------------------------------
 @mixin font-line($size, $line:null) {
-    $rem: $size / $font-size-base;
+    $rem:calc( $size / $font-size-base);
     font-size: #{$rem}rem;
     @if $line !=null {
-      line-height: $line / $size;
+      line-height: calc($line / $size);
     }
   }
   
